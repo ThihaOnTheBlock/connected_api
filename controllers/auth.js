@@ -33,8 +33,8 @@ export const register = async (req, res) => {
     });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
-  } catch (err) {
-    return res.status(500).json({ error: err.message });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
   }
 };
 
@@ -66,7 +66,7 @@ export const login = async (req, res) => {
     res.status(200).json({ token, user: copyUser });
   } catch (error) {
     return res.status(500).json({
-      error: err.message,
+      error: error.message,
     });
   }
 };
