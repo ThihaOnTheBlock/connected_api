@@ -14,9 +14,10 @@ export const getUserFriends = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findById(id);
+    console.log(user);
     const friends = await Promise.all(
       user.friends.map((id) => {
-        User.findById(id);
+        return User.findById(id);
       })
     );
 
