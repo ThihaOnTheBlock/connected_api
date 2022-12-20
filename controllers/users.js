@@ -19,11 +19,13 @@ export const getUserFriends = async (req, res) => {
         User.findById(id);
       })
     );
+
     const formattedFriends = friends.map(
       ({ _id, firstName, lastName, occupation, location, picturePath }) => {
         return { _id, firstName, lastName, occupation, location, picturePath };
       }
     );
+    return res.status(200).json(formattedFriends);
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
