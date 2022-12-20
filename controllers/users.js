@@ -49,7 +49,7 @@ export const addRemoveFriend = async (req, res) => {
 
     const friends = await Promise.all(
       user.friends.map(async (friendId) => {
-        User.getUserById(friendId);
+        User.findById(friendId);
       })
     );
 
