@@ -64,7 +64,7 @@ export const addRemoveFriend = async (req, res) => {
         };
       }
     );
-    res.status(200).json(formattedFriends);
+    return res.status(200).json(formattedFriends);
   } catch (err) {
     return res.status(404).json({ message: err.message });
   }
